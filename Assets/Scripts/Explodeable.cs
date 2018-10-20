@@ -4,7 +4,28 @@ using UnityEngine;
 
 public class Explodeable : MonoBehaviour {
 
+    GameManager gameManager;
+    Rigidbody2D rigidbody2D;
 
+    void Awake()
+    {
+        gameManager = GameManager.instance;
+    }
+
+    void Update()
+    {
+
+    }
+
+    //Called when the car enters the trigger
+    private void OnTriggerEnter(Collider other)
+    {
+        tellGM();
+        givePoints();
+        explode();
+        disapear();
+
+    }
 
     //Tells the GameManager to increase the multiplier by .1
     public double multiplierUp()
