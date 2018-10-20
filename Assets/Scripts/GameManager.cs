@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 
     public int score;
 
-    public int scoreMultiplier;
+    public float scoreMultiplier;
 
     public GameObject player;
 
