@@ -8,35 +8,35 @@ public class Slippery : MonoBehaviour {
     bool collide;
     public int count;
     public int maxCount;
-    public int speed;
+    public float speed;
 
 	// Use this for initialization
 	void Start () {
         speed = 220;
         maxCount = 120;
+        collide = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (collide == true)
+        if (collide == true && player)
         {
-            player.transform.Rotate(0, 0, speed * Time.deltaTime);
-            print("TRUE");
+           //print("True");
+            player.transform.Rotate(Vector3.forward * Time.deltaTime * speed);
             count++;
         }
         if (count == maxCount)
         {
             collide = false;
+            count = 0;
         }
-            
 	}
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        print("WORKING");
-        player = collision.gameObject;
-        //player.transform.Rotate(0, 0, 90);
+        //print("WORKING");
+        player = collider.transform.parent.gameObject;
+        print(player);
         collide = true;
-        //gameObject.SetActiveRecursively(false);
     }
 }
