@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1904633653511352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.79, y: 0.03, z: 0}
+  m_LocalPosition: {x: -0.03, y: 1.43, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,9 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  locationPins:
-  - {fileID: 0}
-  - {fileID: 0}
+  locationPins: []
   pinRadius: 3
 --- !u!114 &114966851386279340
 MonoBehaviour:
@@ -116,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb9b26e8aad8ff4aa94e2b4d0bf623d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 1445799424769730, guid: aff6312b59b00bc439196e62876fd3b8, type: 2}
 --- !u!212 &212700394549266502
 SpriteRenderer:
   m_ObjectHideFlags: 1
