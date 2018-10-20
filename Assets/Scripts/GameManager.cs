@@ -27,15 +27,15 @@ public class GameManager : MonoBehaviour {
 
     public Text scoreText;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+    
+    // Update is called once per frame
+    void Update () {
         scoreText.text = "Score: " + score.ToString();
-	}
+    }
 
     //Tells the GameManager to increase the multiplier by .1
     public float MultiplierUp()
