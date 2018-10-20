@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour {
         gameManager = GameManager.instance;
         rigidbody2D = GetComponent<Rigidbody2D>();
         virtualCamNoise = virtualCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        
     }
 
     void FixedUpdate() {
@@ -55,9 +56,9 @@ public class PlayerController : MonoBehaviour {
             
             transform.Rotate(0, 0, -input.x * driftRotationAngle);
             sprite.gameObject.transform.Rotate(0, 0, input.x * driftRotationAngle);
-
+            // Adds trail when drifting
+            gameObject.GetComponent<TrailRenderer>().emitting = true;
         }
-
         if (!isDrifting) {
             // Accelerate and clamp speed normally if not drifting
 
@@ -79,6 +80,8 @@ public class PlayerController : MonoBehaviour {
             sprite.gameObject.transform.localRotation = Quaternion.Lerp(
                 sprite.gameObject.transform.localRotation, Quaternion.identity,
                 driftRotationSpriteRotFactor);
+            //Turns off trail when not drifting
+            gameObject.GetComponent<TrailRenderer>().emitting = false;
         } else {
             // Kill drift if we let go of Drift key
             if (!Input.GetButton("Drift")) {
