@@ -9,6 +9,11 @@ public class Explodeable : MonoBehaviour {
 
     void Awake()
     {
+        
+    }
+
+    void Start()
+    {
         gameManager = GameManager.instance;
     }
 
