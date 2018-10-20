@@ -45,9 +45,8 @@ public class PlayerController : MonoBehaviour {
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         float amtForward = Vector3.Dot(rigidbody2D.velocity, transform.up);
-        Debug.Log(amtForward);
 
-        // Initiate drifting if turning into a direction and press Drift button
+        // Initiate drifting if turning into a direction and press Drift button and moving forward
         if (Input.GetButtonDown("Drift") && input.x != 0 && !isDrifting && amtForward > 0) {
             isDrifting = true;
             driftDir = input.x < 0 ? DriftDirection.LEFT : DriftDirection.RIGHT;

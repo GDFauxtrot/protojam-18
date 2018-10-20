@@ -138,9 +138,9 @@ MonoBehaviour:
   driftAutoTurnSpeed: 1
   driftTurningInfluence: 0.5
   driftRotationAngle: 45
-  driftRotationSpriteRotFactor: 0.5
+  driftRotationSpriteRotFactor: 0.1
   explodeCooldownRate: 1
-  camRotationLerp: 0.25
+  camRotationLerp: 0.2
 --- !u!212 &212415310719839014
 SpriteRenderer:
   m_ObjectHideFlags: 1
