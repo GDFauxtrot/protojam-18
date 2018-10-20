@@ -7,6 +7,14 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
 
+    public AudioClip gameLoopIntro, gameLoop;
+    
+    public float musicVolume;
+
+    AudioSource music;
+
+    bool musicPlayedGameLoopIntro;
+
     void Awake() {
         if (instance == null) {
             instance = this;
@@ -15,6 +23,11 @@ public class GameManager : MonoBehaviour {
                 DestroyImmediate(gameObject);
             }
         }
+        music = gameObject.AddComponent<AudioSource>();
+
+        // Load up game loop intro
+        Music_PlayIntro();
+        
         timeLeft = 5.0f;
     }
 
@@ -29,6 +42,20 @@ public class GameManager : MonoBehaviour {
 
     public Text scoreText, timeText;
 
+    public void Music_PlayIntro() {
+        music.Stop();
+        music.clip = gameLoopIntro;
+        music.loop = false;
+        music.Play();
+        musicPlayedGameLoopIntro = false;
+    }
+
+    public void Music_PlayLoop() {
+        music.Stop();
+        music.clip = gameLoop;
+        music.loop = true;
+        music.Play();
+    }
 
     // Use this for initialization
     void Start () {
@@ -36,7 +63,14 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        scoreText.text = "Score: " + score.ToString();
+        // scoreText.text = "Score: " + score.ToString();
+
+        if (!music.isPlaying && music.clip == gameLoopIntro && !musicPlayedGameLoopIntro) {
+            Music_PlayLoop();
+            musicPlayedGameLoopIntro = true;
+        }
+
+        music.volume = musicVolume;
         timeText.text = "Timer: " + Timer().ToString("00.00");
         
     }

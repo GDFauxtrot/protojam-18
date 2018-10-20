@@ -298,6 +298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e930bb48488e948871d1e80a670a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameLoopIntro: {fileID: 0}
+  gameLoop: {fileID: 0}
+  musicVolume: 0
   score: 0
   scoreMultiplier: 1
   timeLeft: 0
@@ -652,11 +655,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4559430471516814, guid: 6d7c8f5b9e673ae4fa5b61cade069fa1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.79
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 4559430471516814, guid: 6d7c8f5b9e673ae4fa5b61cade069fa1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.03
+      value: 1.43
       objectReference: {fileID: 0}
     - target: {fileID: 4559430471516814, guid: 6d7c8f5b9e673ae4fa5b61cade069fa1, type: 2}
       propertyPath: m_LocalPosition.z
