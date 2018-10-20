@@ -737,6 +737,46 @@ Prefab:
       propertyPath: virtualCam
       value: 
       objectReference: {fileID: 647113669}
+    - target: {fileID: 61569900745965016, guid: 98259d36f8c49cf42b740d82d99b5ad5,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.0020199418
+      objectReference: {fileID: 0}
+    - target: {fileID: 61569900745965016, guid: 98259d36f8c49cf42b740d82d99b5ad5,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.48475683
+      objectReference: {fileID: 0}
+    - target: {fileID: 61569900745965016, guid: 98259d36f8c49cf42b740d82d99b5ad5,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.34518433
+      objectReference: {fileID: 0}
+    - target: {fileID: 61569900745965016, guid: 98259d36f8c49cf42b740d82d99b5ad5,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.23743653
+      objectReference: {fileID: 0}
+    - target: {fileID: 61275233358661678, guid: 98259d36f8c49cf42b740d82d99b5ad5,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.014754027
+      objectReference: {fileID: 0}
+    - target: {fileID: 61275233358661678, guid: 98259d36f8c49cf42b740d82d99b5ad5,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.47544795
+      objectReference: {fileID: 0}
+    - target: {fileID: 61275233358661678, guid: 98259d36f8c49cf42b740d82d99b5ad5,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.40996736
+      objectReference: {fileID: 0}
+    - target: {fileID: 61275233358661678, guid: 98259d36f8c49cf42b740d82d99b5ad5,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.24052131
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98259d36f8c49cf42b740d82d99b5ad5, type: 2}
   m_IsPrefabAsset: 0
