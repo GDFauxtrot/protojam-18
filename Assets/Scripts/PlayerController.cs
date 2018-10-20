@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Components")]
     public CinemachineVirtualCamera virtualCam;
+    public SpriteRenderer sprite;
+    CinemachineBasicMultiChannelPerlin virtualCamNoise;
     GameManager gameManager;
     Rigidbody2D rigidbody2D;
-    CinemachineBasicMultiChannelPerlin virtualCamNoise;
 
     [Header("Driving")]
     public float accelerationSpeed;
@@ -21,11 +22,17 @@ public class PlayerController : MonoBehaviour {
     public float movementSpeedForMaxTurnSpeed;
 
     [Header("Drifting")]
+    public float driftSpeed;
+    public float driftAutoTurnSpeed;
+    public float driftTurningInfluence;
+    public float driftRotationAngle;
+    public float driftRotationSpriteRotFactor;
     bool isDrifting;
     DriftDirection driftDir;
 
     [Header("Camera")]
     public float explodeCooldownRate;
+    public float camRotationLerp;
 
     void Awake() {
         gameManager = GameManager.instance;
@@ -37,9 +44,18 @@ public class PlayerController : MonoBehaviour {
         // Capture inputs (x = left/right, y = up/down)
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        // Initiate drifting if turning into a direction and press Drift button
-        if (Input.GetButtonDown("Drift") && input.x != 0 && !isDrifting) {
+        float amtForward = Vector3.Dot(rigidbody2D.velocity, transform.up);
+
+        // Initiate drifting if turning into a direction and press Drift button and moving forward
+        if (Input.GetButtonDown("Drift") && input.x != 0 && !isDrifting && amtForward > 0) {
+            isDrifting = true;
             driftDir = input.x < 0 ? DriftDirection.LEFT : DriftDirection.RIGHT;
+
+            sprite.gameObject.transform.localRotation = Quaternion.identity;
+            
+            transform.Rotate(0, 0, -input.x * driftRotationAngle);
+            sprite.gameObject.transform.Rotate(0, 0, input.x * driftRotationAngle);
+
         }
 
         if (!isDrifting) {
@@ -58,10 +74,46 @@ public class PlayerController : MonoBehaviour {
             );
 
             rigidbody2D.velocity = Vector3.ClampMagnitude(rigidbody2D.velocity, maxDrivingSpeed);
-        } else {
-            // Force velocity to be constant and direct car into the drift direction
-        }
 
+            // Rotate sprite back to original if we were out of place
+            sprite.gameObject.transform.localRotation = Quaternion.Lerp(
+                sprite.gameObject.transform.localRotation, Quaternion.identity,
+                driftRotationSpriteRotFactor);
+        } else {
+            // Kill drift if we let go of Drift key
+            if (!Input.GetButton("Drift")) {
+                isDrifting = false;
+            }
+
+            // Sprite during drift rotates a bit further than direction
+            sprite.gameObject.transform.localRotation = Quaternion.Lerp(
+                sprite.gameObject.transform.localRotation,
+                Quaternion.Euler(
+                    0, 0,
+                    (driftDir == DriftDirection.LEFT ? 1 : -1) * driftRotationAngle * 0.5f),
+                driftRotationSpriteRotFactor
+            );
+            // sprite.gameObject.transform.localEulerAngles = new Vector3(
+            //     0, 0, Mathf.Lerp(
+            //             sprite.gameObject.transform.localEulerAngles.z,
+            //             (driftDir == DriftDirection.RIGHT ? 1 : -1) * driftRotationAngle * 0.5f,
+            //             driftRotationSpriteRotFactor)
+            // );
+
+            // Force velocity to be constant and direct car into the drift direction
+            float turnAmt = (driftDir == DriftDirection.LEFT ? 1 : -1) * driftAutoTurnSpeed;
+            turnAmt += -input.x * driftTurningInfluence;
+
+            Vector3 vel = rigidbody2D.velocity;
+
+            vel = Vec2Rotate(vel.normalized,
+                turnAmt);
+            vel.Scale(Vector2.one * driftSpeed);
+
+            rigidbody2D.velocity = vel;
+
+            transform.Rotate(0, 0, turnAmt);
+        }
     }
 
     void Update() {
@@ -72,6 +124,18 @@ public class PlayerController : MonoBehaviour {
     }
 
     void LateUpdate() {
-        virtualCam.transform.rotation = transform.rotation;
+        virtualCam.transform.rotation = Quaternion.Lerp(
+            virtualCam.transform.rotation, transform.rotation, camRotationLerp);
+    }
+
+    public static Vector2 Vec2Rotate(Vector2 v, float degrees) {
+        float radians = degrees * Mathf.Deg2Rad;
+        float sin = Mathf.Sin(radians);
+        float cos = Mathf.Cos(radians);
+
+        float tx = v.x;
+        float ty = v.y;
+ 
+        return new Vector2(cos * tx - sin * ty, sin * tx + cos * ty);
     }
 }
