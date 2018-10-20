@@ -28,17 +28,19 @@ public class GameManager : MonoBehaviour {
         // Load up game loop intro
         Music_PlayIntro();
         
+        timeLeft = 5.0f;
     }
+
 
     public int score;
 
-    public float scoreMultiplier;
+    public float scoreMultiplier, timeLeft;
 
     public GameObject player;
 
     public Camera mainCamera;
 
-    public Text scoreText;
+    public Text scoreText, timeText;
 
     public void Music_PlayIntro() {
         music.Stop();
@@ -57,9 +59,8 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
     }
-    
+
     // Update is called once per frame
     void Update () {
         // scoreText.text = "Score: " + score.ToString();
@@ -70,6 +71,8 @@ public class GameManager : MonoBehaviour {
         }
 
         music.volume = musicVolume;
+        timeText.text = "Timer: " + Timer().ToString("00.00");
+        
     }
 
     //Tells the GameManager to increase the multiplier by .1
@@ -78,7 +81,18 @@ public class GameManager : MonoBehaviour {
         scoreMultiplier += .1f;
         return .1f;
     }
-
+    public float Timer()
+    {
+        if (timeLeft > 00.00f)
+        {
+            timeLeft -= Time.deltaTime;
+        }
+        else
+        {
+            timeLeft = 0.0f;
+        }
+        return timeLeft;
+    }
     //tells the GameManneger to increase the multiple by mul
     public float MultiplierUp(float mul)
     {
@@ -89,11 +103,14 @@ public class GameManager : MonoBehaviour {
     public int GivePoints()
     {
         score += 100;
-
         return 100;
     }
 
-
+    public float AddTime()
+    {
+        timeLeft += 5.0f;
+        return 5.0f;
+    }
     //Tells the GameManager to give the player a given number of points equal to pnt
     public int GivePoints(int pnt)
     {

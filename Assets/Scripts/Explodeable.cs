@@ -7,6 +7,8 @@ public class Explodeable : MonoBehaviour {
     GameManager gameManager;
     Rigidbody2D rigidbody2D;
 
+    GameObject player;
+
     void Awake()
     {
         
@@ -15,6 +17,8 @@ public class Explodeable : MonoBehaviour {
     void Start()
     {
         gameManager = GameManager.instance;
+
+        player = GameObject.Find("Player");
     }
 
     void Update()
@@ -25,17 +29,25 @@ public class Explodeable : MonoBehaviour {
     //Called when the car enters the trigger
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        tellGM();
-        gameManager.GivePoints((int)(100 * gameManager.scoreMultiplier));
-        explode();
-        disapear();
+        Debug.Log(collision.collider.name);
+        if (collision.collider.name == "Good Collider")
+        {
+            tellGM();
+            gameManager.GivePoints((int)(100 * gameManager.scoreMultiplier));
+            explode();
+            disapear(gameObject);
+        } else if (collision.collider.name == "Bad Collider")
+        {
+            explode();
+            disapear(collision.gameObject);
+        }
 
     }
 
     //Removes the explodable from the map
-    public void disapear()
+    public void disapear(GameObject obj)
     {
-        Destroy(gameObject);
+        Destroy(obj);
     }
 
     //Plays a animation of the explosion

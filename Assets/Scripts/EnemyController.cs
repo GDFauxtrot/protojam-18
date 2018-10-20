@@ -10,12 +10,16 @@ public class EnemyController : MonoBehaviour
 
     Rigidbody2D rigidbody2D;
 
-    GameObject player;
-
-    Rigidbody2D playerBody;
-
     public float speed;
 
+    public GameObject[] locationPins;
+
+    int currentPin = 0;
+
+    public float pinRadius = 5;
+
+    Vector2 acceleration = Vector2.zero;
+    
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -24,28 +28,42 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.instance;
-
-        player = gameManager.player;
-
-        playerBody = player.GetComponent<Rigidbody2D>();
-
-        rigidbody2D.AddForce(new Vector2(speed, 0));    
     }
 
     void Update()
     {
-        //Every two seconds change the direction of the enemy
-        if (Time.fixedTime % 2 == 0)
+        if (locationPins.Length > 0)
         {
+            //Change the target
             AimTowardsPlayer();
+
+            //Change direction when within range of location pin (say radius 3 or so)
+            if (Mathf.Abs(locationPins[currentPin % locationPins.Length].transform.position.x - this.transform.position.x) <= pinRadius &&
+                Mathf.Abs(locationPins[currentPin % locationPins.Length].transform.position.y - this.transform.position.y) <= pinRadius)
+            {
+                currentPin++;
+            }
+
+            //Update velocity of car
+            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x + acceleration.x, rigidbody2D.velocity.y + acceleration.y);
+
+            if (rigidbody2D.velocity.magnitude > speed)
+            {
+                rigidbody2D.velocity = rigidbody2D.velocity.normalized * speed;
+            }
+
+            //Rotation
+            this.transform.LookAt(locationPins[currentPin % locationPins.Length].transform.position, Vector3.up);
+            this.transform.Rotate(0, 90, 90);
         }
+
     }
 
     void AimTowardsPlayer()
     {
-        float horizontalDifference = rigidbody2D.position.x - playerBody.position.x;
-        float verticalDifference = rigidbody2D.position.x - playerBody.position.x;
+        float horizontalDifference = locationPins[currentPin % locationPins.Length].transform.position.x - this.transform.position.x;
+        float verticalDifference = locationPins[currentPin % locationPins.Length].transform.position.y - this.transform.position.y;
 
-        rigidbody2D.AddForce(new Vector2(horizontalDifference, verticalDifference));
+        acceleration = new Vector2(horizontalDifference, verticalDifference).normalized;
     }
 }
