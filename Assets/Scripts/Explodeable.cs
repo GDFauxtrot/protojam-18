@@ -7,7 +7,7 @@ public class Explodeable : MonoBehaviour {
     GameManager gameManager;
     Rigidbody2D rigidbody2D;
 
-    public GameObject player;
+    GameObject player;
 
     void Awake()
     {
@@ -17,6 +17,8 @@ public class Explodeable : MonoBehaviour {
     void Start()
     {
         gameManager = GameManager.instance;
+
+        player = GameObject.Find("Player");
     }
 
     void Update()
