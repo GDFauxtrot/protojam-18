@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb9b26e8aad8ff4aa94e2b4d0bf623d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  explosion: {fileID: 1445799424769730, guid: aff6312b59b00bc439196e62876fd3b8, type: 2}
 --- !u!212 &212700394549266502
 SpriteRenderer:
   m_ObjectHideFlags: 1
