@@ -7,28 +7,28 @@ public class Explodeable : MonoBehaviour {
 
 
     //Tells the GameManager to increase the multiplier by .1
-    double multiplierUp()
+    public double multiplierUp()
     {
 
         return .1;
     }
     
     //tells the GameManneger to increase the multiple by mul
-    double multiplierUp(double mul)
+    public double multiplierUp(double mul)
     {
 
         return mul;
     }
 
     //Tells the GameManager to give the player a set number of points equal to 100
-    int givePoints()
+    public int givePoints()
     {
 
         return 100;
     }
 
     //Tells the GameManager to give the player a given number of points equal to pnt
-    int givePoints(int pnt)
+    public int givePoints(int pnt)
     {
         
 
@@ -36,19 +36,19 @@ public class Explodeable : MonoBehaviour {
     }
 
     //Removes the explodable from the map
-    void disapear()
+    public void disapear()
     {
 
     }
 
     //Plays a animation of the explosion
-    void explode()
+    public void explode()
     {
 
     }
 
     //Tells the GameManager that this Object has Exploded
-	void tellGM()
+	public void tellGM()
     {
 
     }
