@@ -687,6 +687,12 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1257451826}
+    - target: {fileID: 114966851386279340, guid: 6d7c8f5b9e673ae4fa5b61cade069fa1,
+        type: 2}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 1445799424769730, guid: aff6312b59b00bc439196e62876fd3b8,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7c8f5b9e673ae4fa5b61cade069fa1, type: 2}
   m_IsPrefabAsset: 0

@@ -3,7 +3,9 @@ guid: 8fb9b26e8aad8ff4aa94e2b4d0bf623d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - explosion: {fileID: 1445799424769730, guid: aff6312b59b00bc439196e62876fd3b8,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -9,6 +9,8 @@ public class Explodeable : MonoBehaviour {
 
     GameObject player;
 
+    public GameObject explosion;
+
     void Awake()
     {
         
@@ -34,11 +36,11 @@ public class Explodeable : MonoBehaviour {
         {
             tellGM();
             gameManager.GivePoints((int)(100 * gameManager.scoreMultiplier));
-            explode();
+            explode(gameObject);
             disapear(gameObject);
         } else if (collision.collider.name == "Bad Collider")
         {
-            explode();
+            explode(collision.gameObject);
             disapear(collision.gameObject);
         }
 
@@ -51,9 +53,9 @@ public class Explodeable : MonoBehaviour {
     }
 
     //Plays a animation of the explosion
-    public void explode()
+    public void explode(GameObject obj)
     {
-        
+        Instantiate(explosion, obj.transform.position, obj.transform.rotation);
     }
 
     //Tells the GameManager that this Object has Exploded
