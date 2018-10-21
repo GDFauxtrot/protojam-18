@@ -96,10 +96,10 @@ public class PlayerController : MonoBehaviour
                 sprite.gameObject.transform.localRotation, Quaternion.identity,
                 driftRotationSpriteRotFactor);
             //Turns off trail when not drifting
-            transform.FindChild("Trail (1)").GetComponent<TrailRenderer>().emitting = false;
-            transform.FindChild("Trail (2)").GetComponent<TrailRenderer>().emitting = false;
-            transform.FindChild("Trail (3)").GetComponent<TrailRenderer>().emitting = false;
-            transform.FindChild("Trail (4)").GetComponent<TrailRenderer>().emitting = false;
+            transform.Find("Trail (1)").GetComponent<TrailRenderer>().emitting = false;
+            transform.Find("Trail (2)").GetComponent<TrailRenderer>().emitting = false;
+            transform.Find("Trail (3)").GetComponent<TrailRenderer>().emitting = false;
+            transform.Find("Trail (4)").GetComponent<TrailRenderer>().emitting = false;
         }
         else
         {

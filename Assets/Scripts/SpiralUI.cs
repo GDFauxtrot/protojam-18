@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class SpiralUI : MonoBehaviour {
 
+    [Range(0f, 1f)]
     public float fillAmount;
 
     Material spiralFillMaterial;
@@ -14,6 +16,6 @@ public class SpiralUI : MonoBehaviour {
     }
 
     void Update () {
-        spiralFillMaterial.SetFloat("_Step", fillAmount);
+        spiralFillMaterial.SetFloat("_Step", 1 - fillAmount);
     }
 }
