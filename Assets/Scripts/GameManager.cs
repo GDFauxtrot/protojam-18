@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour {
             Music_PlayIntro();
 
         timeLeft = startTime;
+
+
     }
 
     public void Music_PlayIntro() {
@@ -72,6 +74,8 @@ public class GameManager : MonoBehaviour {
     void Update () {
         if (scoreText)
             scoreText.text = "Score: " + score.ToString();
+        else
+            scoreText = GameObject.FindWithTag("score").GetComponent<Text>();
 
         if (!music.isPlaying && music.clip == gameLoopIntro && !musicPlayedGameLoopIntro) {
             Music_PlayLoop();
@@ -85,6 +89,8 @@ public class GameManager : MonoBehaviour {
                 timeText.text = "Timer: " + timeLeft.ToString("00.00");
             }
         }
+        else
+            timeText = GameObject.FindWithTag("time").GetComponent<Text>();
 
         //Do not let the meter bypass 100%
         if (meterPercent >= 1)
