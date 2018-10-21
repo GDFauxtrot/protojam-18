@@ -29,7 +29,7 @@ public class GameUIManager : MonoBehaviour {
     }
 
     public void Pressed_GameRestart() {
-        SceneManager.LoadScene("MapBuilding");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void Pressed_MainMenu() {
