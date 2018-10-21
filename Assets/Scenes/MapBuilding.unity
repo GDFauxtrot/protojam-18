@@ -49249,7 +49249,6 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 0aa90e95186abc0409e1b4762b55d5dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -49335,8 +49334,6 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
-=======
->>>>>>> c35b5218db93d650777905fff53b93a28cbd01d2
   m_TargetDisplay: 0
 --- !u!224 &2095329436
 RectTransform:
