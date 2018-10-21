@@ -6,6 +6,8 @@ MonoImporter:
   defaultReferences:
   - explosion: {fileID: 1445799424769730, guid: aff6312b59b00bc439196e62876fd3b8,
       type: 2}
+  - soundPlayer: {fileID: 1100622200081564, guid: a4c82ed2e972b1e42b3fced64bc11a03,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

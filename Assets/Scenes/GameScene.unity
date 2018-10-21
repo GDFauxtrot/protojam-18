@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4352,7 +4352,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 137342600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -10, z: -15}
+  m_LocalPosition: {x: 14.8, y: -75.4, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -14888,11 +14888,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4696819826073638, guid: 91dcf9d6435ed554f970184025be477d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: 14.8
       objectReference: {fileID: 0}
     - target: {fileID: 4696819826073638, guid: 91dcf9d6435ed554f970184025be477d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: -75.4
       objectReference: {fileID: 0}
     - target: {fileID: 4696819826073638, guid: 91dcf9d6435ed554f970184025be477d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -21175,7 +21175,7 @@ Prefab:
     - target: {fileID: 224028873836953266, guid: 21c1b09525ba2a844b5e5d73e5cfe8be,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224028873836953266, guid: 21c1b09525ba2a844b5e5d73e5cfe8be,
         type: 2}
@@ -26673,12 +26673,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 747216776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -10, z: -15}
+  m_LocalPosition: {x: 14.8, y: -75.4, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 640609110}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &749113960
 GameObject:
@@ -40809,7 +40809,7 @@ Transform:
   - {fileID: 1203904855}
   - {fileID: 433614471}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1210125755
 GameObject:
