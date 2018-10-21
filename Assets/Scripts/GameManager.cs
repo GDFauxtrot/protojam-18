@@ -48,15 +48,17 @@ public class GameManager : MonoBehaviour {
                 DestroyImmediate(gameObject);
             }
         }
+        if (player == null)
+            player = GameObject.Find("Player");
+
         music = gameObject.AddComponent<AudioSource>();
 
         // Load up game loop intro
         if (playMusicAtStartup)
             Music_PlayIntro();
 
+        score = 0;
         timeLeft = startTime;
-
-
     }
 
     public void Music_PlayIntro() {
@@ -91,6 +93,12 @@ public class GameManager : MonoBehaviour {
                 timeLeft = Mathf.Clamp(timeLeft - Time.deltaTime, 0f, startTime);
                 timeText.text = "Timer: " + timeLeft.ToString("00.00");
 
+                if (timeLeft == 0f) {
+                    timerIsRunning = false;
+                    GameObject.Find("Game UI Layer").GetComponent<GameUIManager>().GameOver(score, 1.5f, true);
+                    player.GetComponent<PlayerController>().canControl = false;
+                }
+
                 //Change timer's color to red when time is low
                 if (timeLeft < 10)
                 {
@@ -100,6 +108,7 @@ public class GameManager : MonoBehaviour {
                     timeText.color = normalColor;
                 }
             }
+
         }
         else
             timeText = GameObject.FindWithTag("time").GetComponent<Text>();
@@ -138,8 +147,10 @@ public class GameManager : MonoBehaviour {
     }
 
     public void HitPlayer(PlayerController player, Explodeable source) {
+        timerIsRunning = false;
         GameObject.Find("FullscreenFlash").GetComponent<FullscreenFlasher>().FlashWhiteBlack();
         source.Explode(player.gameObject, false);
         Destroy(player.gameObject);
+        GameObject.Find("Game UI Layer").GetComponent<GameUIManager>().GameOver(score, 1.5f, false);
     }
 }

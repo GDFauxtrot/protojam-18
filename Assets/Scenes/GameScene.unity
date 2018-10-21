@@ -273,6 +273,8 @@ MonoBehaviour:
   gameLoop: {fileID: 0}
   musicVolume: 0
   score: 0
+  meterRate: 0.5
+  meterPercent: 0
   timerIsRunning: 0
   startTime: 0
   scoreMultiplier: 0
@@ -378,11 +380,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114182752088178714, guid: 21c1b09525ba2a844b5e5d73e5cfe8be,
-        type: 2}
-      propertyPath: fillAmount
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21c1b09525ba2a844b5e5d73e5cfe8be, type: 2}

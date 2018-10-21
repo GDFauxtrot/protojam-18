@@ -26,7 +26,7 @@ public class SpiralUI : MonoBehaviour {
 
     void Update () {
         //Update fillAmount based on globaly set value
-        fillAmount = gameManager.meterPercent;
+        fillAmount = GameManager.instance.meterPercent;
 
         spiralFillMaterial.SetFloat("_Step", 1 - fillAmount);
     }
