@@ -150,7 +150,6 @@ public class PlayerController : MonoBehaviour
             if (!Input.GetButton("Drift"))
             {
                 StopDrifting();
-                PlayDrivingSound();
             }
 
             // Sprite during drift rotates a bit further than direction
@@ -246,6 +245,7 @@ public class PlayerController : MonoBehaviour
             hurtColliderTop.enabled = true;
             hurtColliderBottom.enabled = true;
         }
+        PlayDrivingSound();
     }
 
     public void PlayDrivingSound() {
