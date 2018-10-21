@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+    Color normalColor = new Color(0.054f, 0.636f, 0.877f, 1.000f);
+    Color redColor = new Color(0.877f, 0.096f, 0.054f, 1.000f);
+
     public static GameManager instance;
 
     public bool playMusicAtStartup;
@@ -98,6 +101,15 @@ public class GameManager : MonoBehaviour {
                     timerIsRunning = false;
                     GameObject.Find("Game UI Layer").GetComponent<GameUIManager>().GameOver(score, 1.5f, true);
                     player.GetComponent<PlayerController>().canControl = false;
+                }
+
+                //Change timer's color to red when time is low
+                if (timeLeft < 10)
+                {
+                    timeText.color = redColor;
+                } else
+                {
+                    timeText.color = normalColor;
                 }
             }
 
