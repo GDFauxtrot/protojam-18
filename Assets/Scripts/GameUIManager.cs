@@ -29,7 +29,8 @@ public class GameUIManager : MonoBehaviour {
     }
 
     public void Pressed_GameRestart() {
-        SceneManager.LoadScene("GameScene");
+        Debug.Log("bro");
+        SceneManager.LoadScene("MapBuilding");
     }
 
     public void Pressed_MainMenu() {
