@@ -155,7 +155,14 @@ public class GameManager : MonoBehaviour {
         timerIsRunning = false;
         GameObject.Find("FullscreenFlash").GetComponent<FullscreenFlasher>().FlashWhiteBlack();
         source.Explode(player.gameObject, false);
+        SoundPlayer sound1 = Instantiate(source.soundPlayer, player.transform).GetComponent<SoundPlayer>();
+        sound1.PlaySound(player.deathSound1, 1f);
+        SoundPlayer sound2 = Instantiate(source.soundPlayer, player.transform).GetComponent<SoundPlayer>();
+        sound1.PlaySound(player.deathSound2, 1f);
         Destroy(player.gameObject);
         GameObject.Find("Game UI Layer").GetComponent<GameUIManager>().GameOver(score, 1.5f, false);
+        
+
+
     }
 }

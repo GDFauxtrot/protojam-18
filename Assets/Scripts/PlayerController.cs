@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem sparks;
     public BoxCollider2D hurtColliderTop, hurtColliderBottom;
     public BoxCollider2D sideColliderLeft, sideColliderRight;
+    public AudioClip deathSound1, deathSound2;
 
     [Header("Driving")]
     public bool canControl;
