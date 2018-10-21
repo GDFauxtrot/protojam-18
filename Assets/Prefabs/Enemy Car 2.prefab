@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838146383602278}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5891113, y: -1.1544571, z: 0}
+  m_LocalPosition: {x: -7.81262, y: -10.168983, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,8 +100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5138ae3ec31dc041ad672e2b9bc862c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  locationPins: []
+  speed: 7
+  locationPins:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   pinRadius: 3
 --- !u!114 &114661636363286158
 MonoBehaviour:
@@ -120,9 +124,6 @@ MonoBehaviour:
   destroySounds:
   - {fileID: 8300000, guid: ba0f36867cec22844b842a3db38fafbc, type: 3}
   - {fileID: 8300000, guid: bfec9c282918bf34b911ee2ea7207567, type: 3}
-  - {fileID: 8300000, guid: 7ef83670f2ed41347b4dae8c8180715b, type: 3}
-  - {fileID: 8300000, guid: 3c42c4952905bd646aacabbf45ef98c1, type: 3}
-  - {fileID: 8300000, guid: 93e163cce208f024cb2b1c968fb1ca49, type: 3}
   soundVolume: 0.75
 --- !u!212 &212395866811473772
 SpriteRenderer:
