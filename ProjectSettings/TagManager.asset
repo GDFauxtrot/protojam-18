@@ -53,6 +53,9 @@ TagManager:
   - name: Sprites
     uniqueID: 2758284725
     locked: 0
+  - name: Tree
+    uniqueID: 2480788515
+    locked: 0
   - name: FX
     uniqueID: 170238697
     locked: 0
