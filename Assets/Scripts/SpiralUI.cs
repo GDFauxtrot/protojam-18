@@ -6,13 +6,14 @@ using UnityEngine.UI;
 [ExecuteInEditMode]
 public class SpiralUI : MonoBehaviour {
 
+    public Image fillImage;
     [Range(0f, 1f)]
     public float fillAmount;
 
     Material spiralFillMaterial;
 
     void Awake() {
-        spiralFillMaterial = transform.GetChild(0).GetComponent<Image>().material;
+        spiralFillMaterial = fillImage.material;
     }
 
     void Update () {

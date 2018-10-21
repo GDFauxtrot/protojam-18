@@ -32,7 +32,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,12 +41,16 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 1
+=======
+  spriteMode: 2
+>>>>>>> 0390f7b70d7f3b083ddcdcc201722730d51a8b65
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,7 +103,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: d0720866f790df443b2b438a4a9d2c90
+=======
+      spriteID: 89cdf0773898ddd4ca68c582a686b31c
+>>>>>>> 0390f7b70d7f3b083ddcdcc201722730d51a8b65
       vertices: []
       indices: 
       edges: []
@@ -107,7 +115,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD
     spriteID: 9a99a72daa3c93f4e943547f09ad2490
+=======
+    spriteID: 1bbc36a12cb36624d972bf36591bdc55
+>>>>>>> 0390f7b70d7f3b083ddcdcc201722730d51a8b65
     vertices: []
     indices: 
     edges: []

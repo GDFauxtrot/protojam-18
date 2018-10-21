@@ -21,7 +21,6 @@ public class Slippery : MonoBehaviour {
 	void Update () {
         if (collide == true && player)
         {
-           //print("True");
             player.transform.Rotate(Vector3.forward * Time.deltaTime * speed);
             count++;
         }
@@ -34,7 +33,6 @@ public class Slippery : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        //print("WORKING");
         player = collider.transform.parent.gameObject;
         print(player);
         collide = true;

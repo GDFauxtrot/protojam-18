@@ -42,8 +42,6 @@ public class PlayerController : MonoBehaviour
         gameManager = GameManager.instance;
         rigidbody2D = GetComponent<Rigidbody2D>();
         virtualCamNoise = virtualCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-
-        // sparks = this.transform.Find("Sparks").gameObject;
     }
 
     void FixedUpdate()
@@ -117,12 +115,6 @@ public class PlayerController : MonoBehaviour
                     (driftDir == DriftDirection.LEFT ? 1 : -1) * driftRotationAngle * 0.5f),
                 driftRotationSpriteRotFactor
             );
-            // sprite.gameObject.transform.localEulerAngles = new Vector3(
-            //     0, 0, Mathf.Lerp(
-            //             sprite.gameObject.transform.localEulerAngles.z,
-            //             (driftDir == DriftDirection.RIGHT ? 1 : -1) * driftRotationAngle * 0.5f,
-            //             driftRotationSpriteRotFactor)
-            // );
 
             // Force velocity to be constant and direct car into the drift direction
             float turnAmt = (driftDir == DriftDirection.LEFT ? 1 : -1) * driftAutoTurnSpeed;
