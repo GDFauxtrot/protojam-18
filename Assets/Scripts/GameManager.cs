@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour {
 
     public int score;
 
+    public bool timerIsRunning;
+    public float startTime;
     public float scoreMultiplier, timeLeft;
 
     public GameObject player;
@@ -43,6 +45,8 @@ public class GameManager : MonoBehaviour {
         // Load up game loop intro
         if (playMusicAtStartup)
             Music_PlayIntro();
+
+        timeLeft = startTime;
     }
 
     public void Music_PlayIntro() {
@@ -70,52 +74,11 @@ public class GameManager : MonoBehaviour {
         }
         music.volume = musicVolume;
 
-        if (timeText)
-            timeText.text = "Timer: " + Timer().ToString("00.00");
-        
-    }
-
-    //Tells the GameManager to increase the multiplier by .1
-    public float MultiplierUp()
-    {
-        scoreMultiplier += .1f;
-        return .1f;
-    }
-    public float Timer()
-    {
-        if (timeLeft > 00.00f)
-        {
-            timeLeft -= Time.deltaTime;
+        if (timeText) {
+            if (timerIsRunning) {
+                timeLeft = Mathf.Clamp(timeLeft - Time.deltaTime, 0, startTime);
+                timeText.text = "Timer: " + timeLeft.ToString("00.00");
+            }
         }
-        else
-        {
-            timeLeft = 0.0f;
-        }
-        return timeLeft;
-    }
-    //tells the GameManneger to increase the multiple by mul
-    public float MultiplierUp(float mul)
-    {
-        scoreMultiplier += mul;
-        return mul;
-    }
-
-    public int GivePoints()
-    {
-        score += 100;
-        return 100;
-    }
-
-    public float AddTime()
-    {
-        timeLeft += 5.0f;
-        return 5.0f;
-    }
-    //Tells the GameManager to give the player a given number of points equal to pnt
-    public int GivePoints(int pnt)
-    {
-        score += pnt;
-
-        return pnt;
     }
 }
