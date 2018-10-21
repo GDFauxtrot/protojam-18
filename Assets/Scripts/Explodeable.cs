@@ -34,8 +34,6 @@ public class Explodeable : MonoBehaviour {
         {
             gameManager.HitPlayer(player, this);
         }
-
-        
     }
 
     //Called when the car enters the collision

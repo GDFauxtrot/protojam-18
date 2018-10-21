@@ -5,7 +5,7 @@ using Cinemachine;
 
 public enum DriftDirection { LEFT, RIGHT };
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(AudioSource))]
 public class PlayerController : MonoBehaviour
 {
 
@@ -46,10 +46,19 @@ public class PlayerController : MonoBehaviour
     public float explosionShakeAdd;
     public float screenShakeMax;
 
+    [Header("Audio")]
+    public float playerVolume;
+    public AudioClip deathSound1, deathSound2;
+    public AudioClip drivingSound, driftingSound;
+    AudioSource audioSource;
+
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         virtualCamNoise = virtualCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.loop = true;
+        PlayDrivingSound();
     }
 
     void Start()
@@ -90,6 +99,8 @@ public class PlayerController : MonoBehaviour
                 hurtColliderTop.enabled = false;
                 hurtColliderBottom.enabled = false;
             }
+
+            PlayDriftingSound();
         }
         if (!isDrifting)
         {
@@ -139,6 +150,7 @@ public class PlayerController : MonoBehaviour
             if (!Input.GetButton("Drift"))
             {
                 StopDrifting();
+                PlayDrivingSound();
             }
 
             // Sprite during drift rotates a bit further than direction
@@ -185,6 +197,14 @@ public class PlayerController : MonoBehaviour
         {
             driftSpeed = _normalSpeed;
         }
+
+        audioSource.volume = playerVolume;
+        if (isDrifting) {
+            audioSource.pitch = Mathf.Lerp(0.25f, 1.25f, rigidbody2D.velocity.magnitude / accelerationSpeed);
+        } else {
+            audioSource.pitch = Mathf.Lerp(0.25f, 1.25f, rigidbody2D.velocity.magnitude / accelerationSpeed);
+            audioSource.volume = Mathf.Lerp(0f, playerVolume, rigidbody2D.velocity.magnitude / (accelerationSpeed / 1.5f));
+        }
     }
 
     void LateUpdate()
@@ -226,5 +246,17 @@ public class PlayerController : MonoBehaviour
             hurtColliderTop.enabled = true;
             hurtColliderBottom.enabled = true;
         }
+    }
+
+    public void PlayDrivingSound() {
+        audioSource.Stop();
+        audioSource.clip = drivingSound;
+        audioSource.Play();
+    }
+
+    public void PlayDriftingSound() {
+        audioSource.Stop();
+        audioSource.clip = driftingSound;
+        audioSource.Play();
     }
 }
