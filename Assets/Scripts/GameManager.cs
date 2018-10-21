@@ -76,8 +76,12 @@ public class GameManager : MonoBehaviour {
     void Update () {
         if (scoreText)
             scoreText.text = "Score: " + score.ToString();
-        else
-            scoreText = GameObject.FindWithTag("score").GetComponent<Text>();
+        else {
+            GameObject st = GameObject.FindWithTag("score");
+            if (st)
+                scoreText = st.GetComponent<Text>();
+        }
+            
 
         if (!music.isPlaying && music.clip == gameLoopIntro && !musicPlayedGameLoopIntro) {
             Music_PlayLoop();
@@ -98,23 +102,17 @@ public class GameManager : MonoBehaviour {
             }
 
         }
-        else
-            timeText = GameObject.FindWithTag("time").GetComponent<Text>();
+        else {
+            GameObject tt = GameObject.FindWithTag("time");
+            if (tt)
+                timeText = tt.GetComponent<Text>();
+        }
 
         //Do not let the meter bypass 100%
-        if (meterPercent >= 1)
-        {
-            meterPercent = 1;
+        meterPercent = Mathf.Clamp01(meterPercent);
+
+        if (meterPercent == 1.0f) {
             scoreMultiplier = 2;
-
-        } else if (meterPercent <= 0)
-        {
-            meterPercent = 0;
-            scoreMultiplier = 1;
-
-        } else if (meterPercent < 1)
-        {
-            scoreMultiplier = 1;
         }
     }
 

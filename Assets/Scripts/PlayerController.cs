@@ -24,8 +24,9 @@ public class PlayerController : MonoBehaviour
     public bool canControl;
     public float accelerationSpeed;
     public float maxDrivingSpeed;
-    public float turningSpeed;
+    public Vector2 turningSpeedSpeedClamp;
     public float movementSpeedForMaxTurnSpeed;
+    public Vector2 linearDragSpeedClamp;
 
     [Header("Drifting")]
     public float driftSpeed;
@@ -103,6 +104,9 @@ public class PlayerController : MonoBehaviour
             // Forward/backward
             rigidbody2D.AddForce(transform.up * input.y * accelerationSpeed);
 
+            float turningSpeed = Mathf.Lerp(turningSpeedSpeedClamp.x, turningSpeedSpeedClamp.y,
+                rigidbody2D.velocity.magnitude / (accelerationSpeed / 2f));
+
             // Rotate with speed and movement magnitude (not moving = no rotate)
             transform.Rotate(0, 0,
                 -input.x * (input.y == 0 ? 1 : input.y) * turningSpeed * (
@@ -160,6 +164,9 @@ public class PlayerController : MonoBehaviour
 
             transform.Rotate(0, 0, turnAmt);
         }
+
+        rigidbody2D.drag = Mathf.Lerp(linearDragSpeedClamp.x, linearDragSpeedClamp.y,
+            rigidbody2D.velocity.magnitude / accelerationSpeed);
     }
 
     void Update()
