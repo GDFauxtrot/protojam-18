@@ -15,9 +15,22 @@ public class GameManager : MonoBehaviour {
 
     bool musicPlayedGameLoopIntro;
 
+    public int score;
+
+    public float scoreMultiplier, timeLeft;
+
+    public GameObject player;
+
+    public Camera mainCamera;
+
+    public Text scoreText, timeText;
+
+    public SpiralUI spiralGradient;
+
     void Awake() {
         if (instance == null) {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         } else {
             if (instance != this) {
                 DestroyImmediate(gameObject);
@@ -30,19 +43,6 @@ public class GameManager : MonoBehaviour {
         
         timeLeft = 5.0f;
     }
-
-
-    public int score;
-
-    public float scoreMultiplier, timeLeft;
-
-    public GameObject player;
-
-    public Camera mainCamera;
-
-    public Text scoreText, timeText;
-
-    public SpiralUI spiralGradient;
 
     public void Music_PlayIntro() {
         music.Stop();
