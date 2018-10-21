@@ -18,6 +18,9 @@ public class Explodeable : MonoBehaviour {
 
     //Called when the car enters the trigger
     void OnTriggerEnter2D(Collider2D collider) {
+        if (!player.canControl)
+            return;
+
         if (collider.tag == "PlayerCollider_Side")
         {
             gameManager.score += (int) (100 * gameManager.scoreMultiplier);
@@ -25,13 +28,15 @@ public class Explodeable : MonoBehaviour {
         } else if (collider.tag == "PlayerCollider_Hurt")
         {
             gameManager.HitPlayer(player, this);
-            // Explode(gameObject);
         }
     }
 
     //Called when the car enters the collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!player.canControl)
+            return;
+        
         if (collision.collider.tag == "PlayerCollider_Side")
         {
             gameManager.score += (int)(100 * gameManager.scoreMultiplier);
@@ -40,7 +45,6 @@ public class Explodeable : MonoBehaviour {
         else if (collision.collider.tag == "PlayerCollider_Hurt")
         {
             gameManager.HitPlayer(player, this);
-            // Explode(gameObject);
         }
     }
 
