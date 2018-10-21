@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Slippery : MonoBehaviour {
 
+    public GameObject soundPlayer;
+    public AudioClip soundClip;
     GameObject player;
     bool collide;
     public int count;
@@ -34,7 +36,9 @@ public class Slippery : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider)
     {
         player = collider.transform.parent.gameObject;
-        print(player);
         collide = true;
+
+        SoundPlayer sound = Instantiate(soundPlayer, transform).GetComponent<SoundPlayer>();
+        sound.PlaySound(soundClip, 1f);
     }
 }

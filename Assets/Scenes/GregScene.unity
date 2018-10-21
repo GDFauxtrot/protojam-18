@@ -373,6 +373,11 @@ Prefab:
       propertyPath: virtualCam
       value: 
       objectReference: {fileID: 529427623}
+    - target: {fileID: 114934758481450186, guid: 91dcf9d6435ed554f970184025be477d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91dcf9d6435ed554f970184025be477d, type: 2}
   m_IsPrefabAsset: 0
