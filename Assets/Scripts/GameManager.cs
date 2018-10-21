@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        // scoreText.text = "Score: " + score.ToString();
+        scoreText.text = "Score: " + score.ToString();
 
         if (!music.isPlaying && music.clip == gameLoopIntro && !musicPlayedGameLoopIntro) {
             Music_PlayLoop();
