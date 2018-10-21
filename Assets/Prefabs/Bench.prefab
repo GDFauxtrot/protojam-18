@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4393316537417824}
   - component: {fileID: 212395742636520364}
+  - component: {fileID: 114661433598428970}
   - component: {fileID: 114092251009288794}
   - component: {fileID: 50876606532013146}
   - component: {fileID: 61357039582882510}
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220473167424890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.12, y: 1.85, z: 0}
+  m_LocalPosition: {x: -24.607182, y: -25.180134, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,6 +101,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1445799424769730, guid: aff6312b59b00bc439196e62876fd3b8, type: 2}
+--- !u!114 &114661433598428970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1220473167424890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4330ff60105844743975abc7fe163196, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212395742636520364
 SpriteRenderer:
   m_ObjectHideFlags: 1
