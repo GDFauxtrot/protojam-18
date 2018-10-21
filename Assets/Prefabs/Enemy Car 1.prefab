@@ -37,8 +37,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1904633653511352}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.835859, y: -9.285311, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -36.36738, y: 31.199997, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,8 +100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5138ae3ec31dc041ad672e2b9bc862c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  locationPins: []
+  speed: 12
+  locationPins:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   pinRadius: 3
 --- !u!114 &114966851386279340
 MonoBehaviour:
@@ -115,6 +119,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1445799424769730, guid: aff6312b59b00bc439196e62876fd3b8, type: 2}
+  soundPlayer: {fileID: 1100622200081564, guid: a4c82ed2e972b1e42b3fced64bc11a03,
+    type: 2}
+  destroySounds:
+  - {fileID: 8300000, guid: ba0f36867cec22844b842a3db38fafbc, type: 3}
+  - {fileID: 8300000, guid: bfec9c282918bf34b911ee2ea7207567, type: 3}
+  soundVolume: 0.75
 --- !u!212 &212700394549266502
 SpriteRenderer:
   m_ObjectHideFlags: 1

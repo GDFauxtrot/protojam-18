@@ -97,6 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c001184cf65173e49bc3a9230d566ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundPlayer: {fileID: 1100622200081564, guid: a4c82ed2e972b1e42b3fced64bc11a03,
+    type: 2}
+  soundClip: {fileID: 8300000, guid: 191d095b68269cf499469fe6fecacfbd, type: 3}
   count: 0
   maxCount: 0
   speed: 0
