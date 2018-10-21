@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour {
             {
                 score = 0;
                 scoreText = st.GetComponent<Text>();
+                scoreText.text = "Score: " + score.ToString();
             }
         }
             
@@ -107,7 +108,7 @@ public class GameManager : MonoBehaviour {
                 }
 
                 //Change timer's color to red when time is low
-                if (timeLeft < 10)
+                if (timeLeft < 10f)
                 {
                     timeText.color = redColor;
                 } else
