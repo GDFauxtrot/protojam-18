@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public BoxCollider2D sideColliderLeft, sideColliderRight;
 
     [Header("Driving")]
+    public bool canControl;
     public float accelerationSpeed;
     public float maxDrivingSpeed;
     public float turningSpeed;
@@ -61,6 +62,10 @@ public class PlayerController : MonoBehaviour
     {
         // Capture inputs (x = left/right, y = up/down)
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        if (!canControl) {
+            input = Vector2.zero;
+        }
 
         float amtForward = Vector3.Dot(rigidbody2D.velocity, transform.up);
 
@@ -207,7 +212,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void StopDrifting() {
+    public void StopDrifting() {
         isDrifting = false;
 
         if (disableHurtWhileDrifting) {
