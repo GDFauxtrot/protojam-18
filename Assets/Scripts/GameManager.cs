@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour {
 
     public Text scoreText, timeText;
 
+    public SpiralUI spiralGradient;
+
     public void Music_PlayIntro() {
         music.Stop();
         music.clip = gameLoopIntro;
@@ -57,11 +59,6 @@ public class GameManager : MonoBehaviour {
         music.Play();
     }
 
-    // Use this for initialization
-    void Start () {
-    }
-
-    // Update is called once per frame
     void Update () {
         scoreText.text = "Score: " + score.ToString();
 

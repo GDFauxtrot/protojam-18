@@ -373,6 +373,28 @@ Prefab:
       propertyPath: virtualCam
       value: 
       objectReference: {fileID: 529427623}
+    - target: {fileID: 198437879609945340, guid: 98259d36f8c49cf42b740d82d99b5ad5,
+        type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
+      value: 0.5027156
+      objectReference: {fileID: 0}
+    - target: {fileID: 198437879609945340, guid: 98259d36f8c49cf42b740d82d99b5ad5,
+        type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185323532125810, guid: 98259d36f8c49cf42b740d82d99b5ad5, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185323532125810, guid: 98259d36f8c49cf42b740d82d99b5ad5, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185323532125810, guid: 98259d36f8c49cf42b740d82d99b5ad5, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98259d36f8c49cf42b740d82d99b5ad5, type: 2}
   m_IsPrefabAsset: 0
@@ -863,9 +885,11 @@ MonoBehaviour:
   musicVolume: 0.4
   score: 0
   scoreMultiplier: 0
+  timeLeft: 0
   player: {fileID: 0}
   mainCamera: {fileID: 0}
   scoreText: {fileID: 0}
+  timeText: {fileID: 0}
 --- !u!114 &615690306
 MonoBehaviour:
   m_ObjectHideFlags: 0
