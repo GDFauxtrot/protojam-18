@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     public bool disableHurtWhileDrifting;
     bool isDrifting;
     DriftDirection driftDir;
+    public float boostSpeed;
+    float _normalSpeed;
 
     [Header("Camera")]
     public float explodeCooldownRate;
@@ -44,9 +46,15 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        gameManager = GameManager.instance;
         rigidbody2D = GetComponent<Rigidbody2D>();
         virtualCamNoise = virtualCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+    }
+
+    void Start()
+    {
+        gameManager = GameManager.instance;
+
+        _normalSpeed = driftSpeed;
     }
 
     void FixedUpdate()
@@ -79,6 +87,9 @@ public class PlayerController : MonoBehaviour
         }
         if (!isDrifting)
         {
+            //Reset sprial meter
+            gameManager.meterPercent -= gameManager.meterRate * Time.deltaTime;
+
             //Stop emitter
             sparks.Stop();
 
@@ -109,6 +120,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            //Increase spiral meter
+            gameManager.meterPercent += gameManager.meterRate * Time.deltaTime;
+
             //Start particles
             sparks.Play();
 
@@ -149,6 +163,15 @@ public class PlayerController : MonoBehaviour
         if (virtualCamNoise.m_AmplitudeGain > 0)
         {
             virtualCamNoise.m_AmplitudeGain -= explodeCooldownRate * Time.deltaTime;
+        }
+
+        //Increase maximum driving speed if boost meter is full
+        if (gameManager.meterPercent >= 1)
+        {
+            driftSpeed = boostSpeed;
+        } else
+        {
+            driftSpeed = _normalSpeed;
         }
     }
 
