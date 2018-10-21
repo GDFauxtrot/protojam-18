@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillImage: {fileID: 114439894073046860}
-  fillAmount: 1
+  fillAmount: 0
 --- !u!114 &114194907507452278
 MonoBehaviour:
   m_ObjectHideFlags: 1

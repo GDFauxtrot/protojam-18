@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour {
 
     public int score;
 
+    public float meterRate = .5f;
+    public float meterPercent = 0;
+
     public bool timerIsRunning;
     public float startTime;
     public float scoreMultiplier, timeLeft;
@@ -81,6 +84,15 @@ public class GameManager : MonoBehaviour {
                 timeLeft = Mathf.Clamp(timeLeft - Time.deltaTime, 0f, startTime);
                 timeText.text = "Timer: " + timeLeft.ToString("00.00");
             }
+        }
+
+        //Do not let the meter bypass 100%
+        if (meterPercent >= 1)
+        {
+            meterPercent = 1;
+        } else if (meterPercent <= 0)
+        {
+            meterPercent = 0;
         }
     }
 
