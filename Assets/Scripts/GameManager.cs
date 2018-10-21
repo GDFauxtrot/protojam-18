@@ -75,8 +75,10 @@ public class GameManager : MonoBehaviour {
         music.volume = musicVolume;
 
         if (timeText) {
+            if (timerIsRunning) {
                 timeLeft = Mathf.Clamp(timeLeft - Time.deltaTime, 0f, startTime);
                 timeText.text = "Timer: " + timeLeft.ToString("00.00");
+            }
         }
     }
 }
