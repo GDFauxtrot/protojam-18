@@ -1,21 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: a111d437cff012d41b46ef689582df51
-=======
-<<<<<<< HEAD
-guid: 98b5d121d97c57443a756cd68b9780b7
-=======
-<<<<<<< HEAD
-guid: 5a9ffb8caf85cfc42ac4901b3afd7142
-=======
-<<<<<<< HEAD
-guid: 1846335b712312741938c10659495d97
-=======
-guid: bd575fbfd9c1144438544eaadba111ef
->>>>>>> 25e283cbba6ee4819af0706d30201ba821b5d13f
->>>>>>> 339a5bed9a2b589e4c0f18b930d50b271dc9d63e
->>>>>>> ef1f2ce324f79c08bec58f372c5e88e4b148c9ad
->>>>>>> 69aeabae246b4950b81e3cf0bef17f98c6d4fbbf
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -47,7 +31,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: -1
@@ -76,6 +60,17 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
