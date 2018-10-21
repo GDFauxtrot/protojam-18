@@ -7,42 +7,33 @@ public class Explodeable : MonoBehaviour {
     GameManager gameManager;
     Rigidbody2D rigidbody2D;
 
-    GameObject player;
+    PlayerController player;
 
     public GameObject explosion;
 
     void Start() {
         gameManager = GameManager.instance;
-        player = GameObject.Find("Player");
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     //Called when the car enters the trigger
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(collision.collider.name);
-        if (collision.collider.name == "Good Collider")
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.tag == "PlayerCollider_Side")
         {
-            // Tell Game Manager item has been exploded
             gameManager.score += (int) (100 * gameManager.scoreMultiplier);
             Explode(gameObject);
-            Disappear(gameObject);
-        } else if (collision.collider.name == "Bad Collider")
+        } else if (collider.tag == "PlayerCollider_Hurt")
         {
-            Explode(collision.gameObject);
-            Disappear(collision.gameObject);
+            Explode(gameObject);
         }
-
-    }
-
-    //Removes the explodable from the map
-    public void Disappear(GameObject obj)
-    {
-        Destroy(obj);
     }
 
     //Plays a animation of the explosion
     public void Explode(GameObject obj)
     {
         Instantiate(explosion, obj.transform.position, obj.transform.rotation);
+        GameManager.instance.FreezeFrame();
+        player.AddScreenShake();
+        Destroy(obj);
     }
 }

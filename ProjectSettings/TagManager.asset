@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Slip
+  - PlayerCollider_Side
+  - PlayerCollider_Hurt
+  - Building
   layers:
   - Default
   - TransparentFX
