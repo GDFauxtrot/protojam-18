@@ -9,7 +9,7 @@ public class Billboard : MonoBehaviour
 
     void Start()
     {
-        gameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        gameCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         initialRotation = transform.rotation.z;
     }
 
