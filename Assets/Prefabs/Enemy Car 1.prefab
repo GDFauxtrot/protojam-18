@@ -115,6 +115,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1445799424769730, guid: aff6312b59b00bc439196e62876fd3b8, type: 2}
+  soundPlayer: {fileID: 1100622200081564, guid: a4c82ed2e972b1e42b3fced64bc11a03,
+    type: 2}
+  destroySounds:
+  - {fileID: 8300000, guid: ba0f36867cec22844b842a3db38fafbc, type: 3}
+  - {fileID: 8300000, guid: 3c42c4952905bd646aacabbf45ef98c1, type: 3}
+  - {fileID: 8300000, guid: 7ef83670f2ed41347b4dae8c8180715b, type: 3}
+  - {fileID: 8300000, guid: 93e163cce208f024cb2b1c968fb1ca49, type: 3}
+  - {fileID: 8300000, guid: bfec9c282918bf34b911ee2ea7207567, type: 3}
+  soundVolume: 0.75
 --- !u!212 &212700394549266502
 SpriteRenderer:
   m_ObjectHideFlags: 1

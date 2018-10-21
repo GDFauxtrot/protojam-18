@@ -863,6 +863,8 @@ MonoBehaviour:
   gameLoop: {fileID: 8300000, guid: e807ade1b5254cd4b889dbe8f06ae3e4, type: 3}
   musicVolume: 0.4
   score: 0
+  meterRate: 0.75
+  meterPercent: 0
   timerIsRunning: 0
   startTime: 0
   scoreMultiplier: 1

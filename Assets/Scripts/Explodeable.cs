@@ -9,7 +9,11 @@ public class Explodeable : MonoBehaviour {
 
     PlayerController player;
 
-    public GameObject explosion;
+    public GameObject explosion, soundPlayer;
+
+    public AudioClip[] destroySounds;
+
+    public float soundVolume;
 
     void Start() {
         gameManager = GameManager.instance;
@@ -24,11 +28,14 @@ public class Explodeable : MonoBehaviour {
         if (collider.tag == "PlayerCollider_Side")
         {
             gameManager.score += (int) (100 * gameManager.scoreMultiplier);
+            PlaySound(destroySounds[Random.Range(0, destroySounds.Length)], soundVolume);
             Explode(gameObject);
         } else if (collider.tag == "PlayerCollider_Hurt")
         {
             gameManager.HitPlayer(player, this);
         }
+
+        
     }
 
     //Called when the car enters the collision
@@ -40,6 +47,7 @@ public class Explodeable : MonoBehaviour {
         if (collision.collider.tag == "PlayerCollider_Side")
         {
             gameManager.score += (int)(100 * gameManager.scoreMultiplier);
+            PlaySound(destroySounds[Random.Range(0, destroySounds.Length)], soundVolume);
             Explode(gameObject);
         }
         else if (collision.collider.tag == "PlayerCollider_Hurt")
@@ -56,5 +64,10 @@ public class Explodeable : MonoBehaviour {
         player.AddScreenShake();
         if (destroy)
             Destroy(obj);
+    }
+
+    void PlaySound(AudioClip clip, float volume) {
+        GameObject sound = Instantiate(soundPlayer, transform.position, transform.rotation);
+        sound.GetComponent<SoundPlayer>().PlaySound(clip, volume);
     }
 }

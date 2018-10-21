@@ -101,6 +101,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1445799424769730, guid: aff6312b59b00bc439196e62876fd3b8, type: 2}
+  soundPlayer: {fileID: 1100622200081564, guid: a4c82ed2e972b1e42b3fced64bc11a03,
+    type: 2}
+  destroySounds:
+  - {fileID: 8300000, guid: b8f8645d356e37f42bacc0e72c5933bc, type: 3}
+  - {fileID: 8300000, guid: bfec9c282918bf34b911ee2ea7207567, type: 3}
+  soundVolume: 0.75
 --- !u!114 &114922814539708824
 MonoBehaviour:
   m_ObjectHideFlags: 1
