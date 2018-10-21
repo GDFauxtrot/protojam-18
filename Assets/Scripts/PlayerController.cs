@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigidbody2D;
     public TrailRenderer[] trails;
     public ParticleSystem sparks;
-    public BoxCollider2D hurtColliderTop, hurtColliderBottom;
-    public BoxCollider2D sideColliderLeft, sideColliderRight;
 
     [Header("Driving")]
     public float accelerationSpeed;
@@ -32,15 +30,12 @@ public class PlayerController : MonoBehaviour
     public float driftTurningInfluence;
     public float driftRotationAngle;
     public float driftRotationSpriteRotFactor;
-    public bool disableHurtWhileDrifting;
     bool isDrifting;
     DriftDirection driftDir;
 
     [Header("Camera")]
     public float explodeCooldownRate;
     public float camRotationLerp;
-    public float explosionShakeAdd;
-    public float screenShakeMax;
 
     void Awake()
     {
@@ -66,15 +61,9 @@ public class PlayerController : MonoBehaviour
 
             transform.Rotate(0, 0, -input.x * driftRotationAngle);
             sprite.gameObject.transform.Rotate(0, 0, input.x * driftRotationAngle);
-            
             // Adds trail when drifting
             foreach (TrailRenderer trail in trails) {
                 trail.emitting = true;
-            }
-
-            if (disableHurtWhileDrifting) {
-                hurtColliderTop.enabled = false;
-                hurtColliderBottom.enabled = false;
             }
         }
         if (!isDrifting)
@@ -115,7 +104,7 @@ public class PlayerController : MonoBehaviour
             // Kill drift if we let go of Drift key
             if (!Input.GetButton("Drift"))
             {
-                StopDrifting();
+                isDrifting = false;
             }
 
             // Sprite during drift rotates a bit further than direction
@@ -158,10 +147,6 @@ public class PlayerController : MonoBehaviour
             virtualCam.transform.rotation, transform.rotation, camRotationLerp);
     }
 
-    public void AddScreenShake() {
-        virtualCamNoise.m_AmplitudeGain = Mathf.Clamp(virtualCamNoise.m_AmplitudeGain + explosionShakeAdd, 0, screenShakeMax);
-    }
-
     public static Vector2 Vec2Rotate(Vector2 v, float degrees)
     {
         float radians = degrees * Mathf.Deg2Rad;
@@ -172,24 +157,5 @@ public class PlayerController : MonoBehaviour
         float ty = v.y;
 
         return new Vector2(cos * tx - sin * ty, sin * tx + cos * ty);
-    }
-
-    void OnDestroy() {
-        virtualCamNoise.m_AmplitudeGain = 0;
-    }
-
-    void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.collider.tag == "Building") {
-            StopDrifting();
-        }
-    }
-
-    void StopDrifting() {
-        isDrifting = false;
-
-        if (disableHurtWhileDrifting) {
-            hurtColliderTop.enabled = true;
-            hurtColliderBottom.enabled = true;
-        }
     }
 }
