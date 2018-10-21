@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     public bool disableHurtWhileDrifting;
     bool isDrifting;
     DriftDirection driftDir;
-    public float boostSpeed;
+    public float boostSpeed = 30;
     float _normalSpeed;
 
     [Header("Camera")]
