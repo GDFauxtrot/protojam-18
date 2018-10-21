@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 4674767087096234}
   - component: {fileID: 198671708778434198}
   - component: {fileID: 199900534281083886}
+  - component: {fileID: 210379338244063392}
   m_Layer: 0
   m_Name: Sparks
   m_TagString: Untagged
@@ -954,7 +955,7 @@ MonoBehaviour:
   linearDragSpeedClamp: {x: 2.5, y: 1}
   driftSpeed: 15
   driftAutoTurnSpeed: 1
-  driftTurningInfluence: 0.5
+  driftTurningInfluence: 0.75
   driftRotationAngle: 45
   driftRotationSpriteRotFactor: 0.1
   disableHurtWhileDrifting: 1
@@ -5562,6 +5563,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!210 &210379338244063392
+SortingGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1645043161186658}
+  m_Enabled: 1
+  m_SortingLayerID: 170238697
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!212 &212612565174022916
 SpriteRenderer:
   m_ObjectHideFlags: 1

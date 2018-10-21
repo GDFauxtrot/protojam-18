@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         if (!isDrifting)
         {
             //Reset sprial meter
-            gameManager.meterPercent -= gameManager.meterRate * Time.deltaTime;
+            gameManager.meterPercent -= (gameManager.meterRate / 2) * Time.deltaTime;
 
             //Stop emitter
             sparks.Stop();
