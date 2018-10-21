@@ -29,6 +29,21 @@ public class Explodeable : MonoBehaviour {
         }
     }
 
+    //Called when the car enters the collision
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "PlayerCollider_Side")
+        {
+            gameManager.score += (int)(100 * gameManager.scoreMultiplier);
+            Explode(gameObject);
+        }
+        else if (collision.collider.tag == "PlayerCollider_Hurt")
+        {
+            gameManager.HitPlayer(player, this);
+            // Explode(gameObject);
+        }
+    }
+
     //Plays a animation of the explosion
     public void Explode(GameObject obj, bool destroy = true)
     {

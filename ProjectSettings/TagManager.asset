@@ -8,6 +8,8 @@ TagManager:
   - PlayerCollider_Side
   - PlayerCollider_Hurt
   - Building
+  - time
+  - score
   layers:
   - Default
   - TransparentFX
