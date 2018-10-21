@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 61211314870059562}
   m_Layer: 0
   m_Name: Bad Collider Front
-  m_TagString: Untagged
+  m_TagString: PlayerCollider_Hurt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 61153718146242304}
   m_Layer: 0
   m_Name: Good Collider Right
-  m_TagString: Untagged
+  m_TagString: PlayerCollider_Side
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 61823868473294218}
   m_Layer: 0
   m_Name: Good Collider Left
-  m_TagString: Untagged
+  m_TagString: PlayerCollider_Side
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 61671436095956474}
   m_Layer: 0
   m_Name: Bad Collider Back
-  m_TagString: Untagged
+  m_TagString: PlayerCollider_Hurt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,7 +301,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1897010181628628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -10, z: 0}
+  m_LocalPosition: {x: 5.76, y: -35.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4491389794068032}
@@ -946,6 +946,7 @@ MonoBehaviour:
   hurtColliderBottom: {fileID: 61671436095956474}
   sideColliderLeft: {fileID: 61823868473294218}
   sideColliderRight: {fileID: 61153718146242304}
+  canControl: 1
   accelerationSpeed: 20
   maxDrivingSpeed: 100
   turningSpeed: 1
@@ -956,6 +957,7 @@ MonoBehaviour:
   driftRotationAngle: 45
   driftRotationSpriteRotFactor: 0.1
   disableHurtWhileDrifting: 1
+  boostSpeed: 30
   explodeCooldownRate: 3
   camRotationLerp: 0.2
   explosionShakeAdd: 2.5

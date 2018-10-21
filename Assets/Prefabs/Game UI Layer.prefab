@@ -234,7 +234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1748244190743782
 GameObject:
   m_ObjectHideFlags: 1
@@ -883,7 +883,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Time's up!
 --- !u!114 &114806497810893686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -929,6 +929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 114518994127285120}
+  timeUpText: {fileID: 114625798978736766}
   gameOverParent: {fileID: 1579256087770132}
 --- !u!114 &114857367004173142
 MonoBehaviour:
@@ -1182,8 +1183,8 @@ RectTransform:
   - {fileID: 224933396693000030}
   - {fileID: 224179196210956246}
   - {fileID: 224524310485591820}
-  - {fileID: 224692280021467272}
   - {fileID: 224431997492912982}
+  - {fileID: 224692280021467272}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1296,7 +1297,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 224028873836953266}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1446,7 +1447,7 @@ RectTransform:
   - {fileID: 224456656146116772}
   - {fileID: 224183025084061904}
   m_Father: {fileID: 224028873836953266}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
