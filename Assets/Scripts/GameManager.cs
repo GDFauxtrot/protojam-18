@@ -31,8 +31,6 @@ public class GameManager : MonoBehaviour {
 
     public SpiralUI spiralGradient;
 
-    Coroutine frameFreezeCoroutine;
-
     void Awake() {
         if (instance == null) {
             instance = this;
@@ -82,21 +80,5 @@ public class GameManager : MonoBehaviour {
                 timeText.text = "Timer: " + timeLeft.ToString("00.00");
             }
         }
-    }
-
-    // Freeze the game for one frame. Makes impacts more satisfying.
-    public void FreezeFrame() {
-        if (frameFreezeCoroutine != null) {
-            StopCoroutine(frameFreezeCoroutine);
-        }
-        frameFreezeCoroutine = StartCoroutine(FreezeFrameCoroutine());
-    }
-
-    IEnumerator FreezeFrameCoroutine() {
-        Time.timeScale = 0.0f;
-        yield return new WaitForSecondsRealtime(Time.deltaTime);
-        Time.timeScale = 1.0f;
-
-        frameFreezeCoroutine = null;
     }
 }
