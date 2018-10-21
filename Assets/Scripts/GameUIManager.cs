@@ -20,12 +20,8 @@ public class GameUIManager : MonoBehaviour {
         if (timeUp)
         {
             timeUpText.gameObject.SetActive(true);
-            score = 0;
         }
-
-
         scoreText.text = "Score: " + score.ToString();
-
         if (gameOverCoroutine != null) {
             StopCoroutine(gameOverCoroutine);
         }
