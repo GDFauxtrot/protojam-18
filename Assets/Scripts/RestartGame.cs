@@ -14,7 +14,6 @@ public class RestartGame : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-      //  game.startTime = 60;
         if (game.timeLeft == 0)
         {
             gameOverText.text = "Time's Up";
@@ -23,6 +22,7 @@ public class RestartGame : MonoBehaviour {
         {
             //Reloads current scene
             game.timeLeft = game.startTime;
+            game.score = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

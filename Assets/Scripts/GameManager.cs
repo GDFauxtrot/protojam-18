@@ -129,5 +129,6 @@ public class GameManager : MonoBehaviour {
         GameObject.Find("FullscreenFlash").GetComponent<FullscreenFlasher>().FlashWhiteBlack();
         source.Explode(player.gameObject, false);
         Destroy(player.gameObject);
+        GameObject.Find("Game UI Layer").GetComponent<GameUIManager>().GameOver(score, 1.0f);
     }
 }
