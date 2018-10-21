@@ -15,8 +15,8 @@ public class PlayerController : MonoBehaviour
     CinemachineBasicMultiChannelPerlin virtualCamNoise;
     GameManager gameManager;
     Rigidbody2D rigidbody2D;
-
-    GameObject sparks;
+    public TrailRenderer[] trails;
+    public ParticleSystem sparks;
 
     [Header("Driving")]
     public float accelerationSpeed;
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         virtualCamNoise = virtualCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
-        sparks = this.transform.Find("Sparks").gameObject;
+        // sparks = this.transform.Find("Sparks").gameObject;
     }
 
     void FixedUpdate()
@@ -64,16 +64,14 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(0, 0, -input.x * driftRotationAngle);
             sprite.gameObject.transform.Rotate(0, 0, input.x * driftRotationAngle);
             // Adds trail when drifting
-            print(transform.Find("Trail (1)"));
-            transform.Find("Trail (1)").GetComponent<TrailRenderer>().emitting = true;
-            transform.Find("Trail (2)").GetComponent<TrailRenderer>().emitting = true;
-            transform.Find("Trail (3)").GetComponent<TrailRenderer>().emitting = true;
-            transform.Find("Trail (4)").GetComponent<TrailRenderer>().emitting = true;
+            foreach (TrailRenderer trail in trails) {
+                trail.emitting = true;
+            }
         }
         if (!isDrifting)
         {
             //Stop emitter
-            sparks.GetComponent<ParticleSystem>().Stop();
+            sparks.Stop();
 
             // Accelerate and clamp speed normally if not drifting
 
@@ -96,15 +94,14 @@ public class PlayerController : MonoBehaviour
                 sprite.gameObject.transform.localRotation, Quaternion.identity,
                 driftRotationSpriteRotFactor);
             //Turns off trail when not drifting
-            transform.Find("Trail (1)").GetComponent<TrailRenderer>().emitting = false;
-            transform.Find("Trail (2)").GetComponent<TrailRenderer>().emitting = false;
-            transform.Find("Trail (3)").GetComponent<TrailRenderer>().emitting = false;
-            transform.Find("Trail (4)").GetComponent<TrailRenderer>().emitting = false;
+            foreach (TrailRenderer trail in trails) {
+                trail.emitting = false;
+            }
         }
         else
         {
             //Start particles
-            sparks.GetComponent<ParticleSystem>().Play();
+            sparks.Play();
 
             // Kill drift if we let go of Drift key
             if (!Input.GetButton("Drift"))

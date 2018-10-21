@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
 
+    public bool playMusicAtStartup;
+
     public AudioClip gameLoopIntro, gameLoop;
     
     public float musicVolume;
@@ -39,9 +41,8 @@ public class GameManager : MonoBehaviour {
         music = gameObject.AddComponent<AudioSource>();
 
         // Load up game loop intro
-        Music_PlayIntro();
-        
-        timeLeft = 5.0f;
+        if (playMusicAtStartup)
+            Music_PlayIntro();
     }
 
     public void Music_PlayIntro() {
@@ -60,15 +61,17 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update () {
-        scoreText.text = "Score: " + score.ToString();
+        if (scoreText)
+            scoreText.text = "Score: " + score.ToString();
 
         if (!music.isPlaying && music.clip == gameLoopIntro && !musicPlayedGameLoopIntro) {
             Music_PlayLoop();
             musicPlayedGameLoopIntro = true;
         }
-
         music.volume = musicVolume;
-        timeText.text = "Timer: " + Timer().ToString("00.00");
+
+        if (timeText)
+            timeText.text = "Timer: " + Timer().ToString("00.00");
         
     }
 
