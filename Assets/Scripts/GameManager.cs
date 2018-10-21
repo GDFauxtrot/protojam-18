@@ -94,9 +94,15 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator FreezeFrameCoroutine() {
         Time.timeScale = 0.0f;
-        yield return new WaitForSecondsRealtime(Time.deltaTime);
+        yield return new WaitForSecondsRealtime(Time.deltaTime * 2);
         Time.timeScale = 1.0f;
 
         frameFreezeCoroutine = null;
+    }
+
+    public void HitPlayer(PlayerController player, Explodeable source) {
+        GameObject.Find("FullscreenFlash").GetComponent<FullscreenFlasher>().FlashWhiteBlack();
+        source.Explode(player.gameObject, false);
+        Destroy(player.gameObject);
     }
 }

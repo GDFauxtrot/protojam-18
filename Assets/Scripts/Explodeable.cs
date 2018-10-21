@@ -24,16 +24,18 @@ public class Explodeable : MonoBehaviour {
             Explode(gameObject);
         } else if (collider.tag == "PlayerCollider_Hurt")
         {
-            Explode(gameObject);
+            gameManager.HitPlayer(player, this);
+            // Explode(gameObject);
         }
     }
 
     //Plays a animation of the explosion
-    public void Explode(GameObject obj)
+    public void Explode(GameObject obj, bool destroy = true)
     {
         Instantiate(explosion, obj.transform.position, obj.transform.rotation);
         GameManager.instance.FreezeFrame();
         player.AddScreenShake();
-        Destroy(obj);
+        if (destroy)
+            Destroy(obj);
     }
 }
