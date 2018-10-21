@@ -82,7 +82,10 @@ public class GameManager : MonoBehaviour {
         else {
             GameObject st = GameObject.FindWithTag("score");
             if (st)
+            {
+                score = 0;
                 scoreText = st.GetComponent<Text>();
+            }
         }
             
 
@@ -117,7 +120,11 @@ public class GameManager : MonoBehaviour {
         else {
             GameObject tt = GameObject.FindWithTag("time");
             if (tt)
+            {
                 timeText = tt.GetComponent<Text>();
+                timeLeft = startTime;
+                timerIsRunning = true;
+            }
         }
 
         //Do not let the meter bypass 100%

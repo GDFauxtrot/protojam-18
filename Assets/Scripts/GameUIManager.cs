@@ -18,7 +18,11 @@ public class GameUIManager : MonoBehaviour {
     }
     public void GameOver(int score, float timeDelay, bool timeUp) {
         if (timeUp)
+        {
             timeUpText.gameObject.SetActive(true);
+            score = 0;
+        }
+
 
         scoreText.text = "Score: " + score.ToString();
 
@@ -29,7 +33,6 @@ public class GameUIManager : MonoBehaviour {
     }
 
     public void Pressed_GameRestart() {
-        Debug.Log("bro");
         SceneManager.LoadScene("MapBuilding");
     }
 
