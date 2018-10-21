@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4376397871642940}
   - component: {fileID: 198483209889359462}
   - component: {fileID: 199393787904071240}
+  - component: {fileID: 210276168890193826}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 4661217508102108}
   - component: {fileID: 198448040106722632}
   - component: {fileID: 199898386031117014}
+  - component: {fileID: 210920136919610126}
   m_Layer: 0
   m_Name: Smoke
   m_TagString: Untagged
@@ -9261,3 +9263,23 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!210 &210276168890193826
+SortingGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1445799424769730}
+  m_Enabled: 1
+  m_SortingLayerID: 170238697
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+--- !u!210 &210920136919610126
+SortingGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1979436095266518}
+  m_Enabled: 1
+  m_SortingLayerID: 170238697
+  m_SortingLayer: 2
+  m_SortingOrder: 0
