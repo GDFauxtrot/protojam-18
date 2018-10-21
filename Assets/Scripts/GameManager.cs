@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour {
 
     Coroutine frameFreezeCoroutine;
 
+    public GameObject[] playerStartLocations;
+
     void Awake() {
         if (instance == null) {
             instance = this;
@@ -50,6 +52,9 @@ public class GameManager : MonoBehaviour {
         }
         if (player == null)
             player = GameObject.Find("Player");
+
+        //Set player's location
+        player.transform.position = playerStartLocations[Random.Range(0, playerStartLocations.Length - 1)].transform.position;
 
         music = gameObject.AddComponent<AudioSource>();
 
