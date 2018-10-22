@@ -29,10 +29,17 @@ public class GameUIManager : MonoBehaviour {
     }
 
     public void Pressed_GameRestart() {
+        GameManager.instance.playMusicAtStartup = true;
+        GameManager.instance.musicPlayedGameLoopIntro = false;
+        GameManager.instance.StopMusic();
+        
         SceneManager.LoadScene("GameScene");
     }
 
     public void Pressed_MainMenu() {
+        GameManager.instance.playMusicAtStartup = false;
+        GameManager.instance.musicPlayedGameLoopIntro = false;
+        GameManager.instance.StopMusic();
         SceneManager.LoadScene("MainMenuScene");
     }
 

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour {
 
     public GameObject creditsParent;
+    public GameObject tutorialParent;
 
     GameManager gm;
 
@@ -14,11 +15,11 @@ public class MainMenuManager : MonoBehaviour {
         gm = GameManager.instance;
 
         creditsParent.SetActive(false);
+        tutorialParent.SetActive(false);
     }
 
     public void Pressed_Start() {
-        // Load up controls + flavor text before this?
-        SceneManager.LoadScene("GameScene");
+        tutorialParent.SetActive(true);
     }
 
     public void Pressed_Credits() {
@@ -31,5 +32,9 @@ public class MainMenuManager : MonoBehaviour {
 
     public void Pressed_CreditsBack() {
         creditsParent.SetActive(false);
+    }
+
+    public void Pressed_LetsGo() {
+        SceneManager.LoadScene("GameScene");
     }
 }

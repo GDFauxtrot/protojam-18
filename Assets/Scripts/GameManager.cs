@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour {
 
     AudioSource music;
 
-    bool musicPlayedGameLoopIntro;
+    public bool musicPlayedGameLoopIntro;
 
     public int score;
 
@@ -42,31 +43,40 @@ public class GameManager : MonoBehaviour {
     public GameObject[] playerStartLocations;
 
     void Awake() {
-        if (instance == null) {
+        if (instance != null && instance != this)
+            Destroy(this.gameObject);
+        else {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        } else {
-            if (instance != this) {
-                DestroyImmediate(gameObject);
-            }
+            // DontDestroyOnLoad(this.gameObject);
         }
+        // if (instance == null) {
+        //     instance = this;
+        //     DontDestroyOnLoad(this.gameObject);
+        // } else {
+        //     if (instance != this) {
+        //         DestroyImmediate(this.gameObject);
+        //     }
+        // }
         if (player == null)
             player = GameObject.Find("Player");
-
-        //Set player's location
-        player.transform.position = playerStartLocations[Random.Range(0, playerStartLocations.Length - 1)].transform.position;
 
         music = gameObject.AddComponent<AudioSource>();
 
         // Load up game loop intro
-        if (playMusicAtStartup)
+        if (playMusicAtStartup && SceneManager.GetActiveScene().name == "GameScene")
             Music_PlayIntro();
 
         score = 0;
         timeLeft = startTime;
     }
 
+    void Start() {
+        //Set player's location
+        player.transform.position = playerStartLocations[Random.Range(0, playerStartLocations.Length)].transform.position;
+    }
+
     public void Music_PlayIntro() {
+        Debug.Log("intro");
         music.Stop();
         music.clip = gameLoopIntro;
         music.loop = false;
@@ -170,5 +180,9 @@ public class GameManager : MonoBehaviour {
         
 
 
+    }
+
+    public void StopMusic() {
+        music.Stop();
     }
 }
